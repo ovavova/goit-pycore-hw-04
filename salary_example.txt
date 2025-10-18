@@ -1,4 +1,4 @@
-Alex Korp,1000
+Alex Korp,650
 Nikita Borisenko,5000
-Sitarama Raju,5000
-Chiki Briki,1000
+Sitarama Raju,7000
+Chiki Briki,6000

@@ -17,7 +17,5 @@ def total_salary(path: str) -> tuple:
     avg_salary = total_salary / len(salary_dict)                                      # Average sallary 
     return (total_salary, avg_salary)                                                 # return as tuple: (total sum, avg)
 
-
-print(total_salary(path_input))
-
-
+total, average = total_salary(path_input)
+print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average:.2f}")
