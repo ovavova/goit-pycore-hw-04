@@ -1,22 +1,22 @@
 import sys
-import pathlib
-import colorama
-import os
+from pathlib import Path
+from colorama import init, Fore, Style, Back
 
 
 
 def view_dir_struct() :
     if len(sys.argv) == 2:
         print(sys.argv[1])
-        path = sys.argv[1]
-    
-    current_path = os.getcwd()
-    print(pathlib.Path(current_path))
-    print(colorama.Fore.CYAN + colorama.Style.BRIGHT + os.path.basename(current_path) + "/")
-    print(os.listdir(current_path))
-
-    
-
+        path = Path(sys.argv[1])
+    else:
+        path = Path(".")
+    init(autoreset=True)
+    print(Fore.BLUE + Style.BRIGHT + Path.cwd().name + "/")
+    for entry in path.iterdir():
+        if entry.is_dir():
+            print(Fore.YELLOW + Style.BRIGHT + "    " + entry.name + '/')
+        else:
+            print(Fore.LIGHTGREEN_EX + Style.NORMAL + "    " + entry.name)
 
 if __name__ == '__main__':
     view_dir_struct()
