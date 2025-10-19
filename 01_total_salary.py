@@ -1,8 +1,8 @@
-path_input = "saleary_example.txt"                                                    # Input path test
+path_input = "salary_example.txt"                                                    # Input path test
 
 def total_salary(path: str) -> tuple:
     try:
-        with open(path, "r") as file:                                                     # Open file to read
+        with open(path, "r", encoding='utf-8') as file:                                                     # Open file to read
             salary_dict = {}                                                              # Creating empty dictionary
             while True:
                 line = file.readline()                                                    # Read a line from file
