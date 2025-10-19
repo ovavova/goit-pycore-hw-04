@@ -1,15 +1,19 @@
-path_input = "salary_example.txt"                                                    # Input path test
+path_input = "saleary_example.txt"                                                    # Input path test
 
 def total_salary(path: str) -> tuple:
-    with open(path, "r") as file:                                                     # Open file to read
-        salary_dict = {}                                                              # Creating empty dictionary
-        while True:
-            line = file.readline()                                                    # Read a line from file
-            if not line:
-                break
-            
-            line_data = line.split(sep = ",", maxsplit = 1)                           # Transform line into list with name and salary
-            salary_dict[line_data[0]] = line_data[1]                                  # Add to dictionary - name as key and sallary as value.  
+    try:
+        with open(path, "r") as file:                                                     # Open file to read
+            salary_dict = {}                                                              # Creating empty dictionary
+            while True:
+                line = file.readline()                                                    # Read a line from file
+                if not line:
+                    break
+                
+                line_data = line.split(sep = ",", maxsplit = 1)                           # Transform line into list with name and salary
+                salary_dict[line_data[0]] = line_data[1]                                  # Add to dictionary - name as key and sallary as value.  
+    except FileNotFoundError:                                                             # Catch File path error  
+        print("Invalid file path")
+        return ("file path error","file path error")                                      # Return file path error
     
     salary_dict = {name: int(salary.strip()) for name, salary in salary_dict.items()} # Striping salary from '\n' AND converting to int
                                          
@@ -18,4 +22,4 @@ def total_salary(path: str) -> tuple:
     return (total_salary, avg_salary)                                                 # return as tuple: (total sum, avg)
 
 total, average = total_salary(path_input)
-print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average:.2f}")
+print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")

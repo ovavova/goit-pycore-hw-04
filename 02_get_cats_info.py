@@ -1,5 +1,5 @@
 
-input_path = "catds.txt"
+input_path = "cats.txt"
 
 def get_cats_info(path: str) -> list:     # Taking path as string  
     cat_lst = []                          # Creating empti list to store cats dicts
@@ -23,5 +23,11 @@ def get_cats_info(path: str) -> list:     # Taking path as string
 
 print(get_cats_info(input_path))
 
-    
+# c =  get_cats_info(input_path)
+# age = 0
+# for cat in c:
+#     age += cat["age"]
+
+# print(f"total age = {age} average age = {age / len(c)}")
+
     
